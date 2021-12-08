@@ -1,0 +1,40 @@
+using System;
+using static System.Console;
+namespace ConsoleApp1
+{
+    // Взаємодія між класами типу uses
+    // Клас A використовує клас B
+    class B
+    {
+        public const double Pi2 = 6.28;
+        public double Pi = 3.14;
+        static public void MethodB()
+        {
+            WriteLine(" B.MethodB() ");
+        }
+    }
+    class A
+    {
+        public void MethodA()
+        {
+            // 1. Виклик функції-члена класу B з класу A
+            B.MethodB();
+            // 2. Звертання до поля даних класу B з класу A
+            WriteLine(B.Pi2);
+            // 3. Запис поля даних класу B
+            B objB = new B(); // створити екземпляр класу B
+            objB.Pi = 3.141592; // записати поле даних
+        }
+    }
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            // 1. Створити екземпляр класу A
+            A objA = new A();
+            // 2. Викликати метод MethodA() класу A
+            objA.MethodA();
+        }
+    }
+}
